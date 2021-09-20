@@ -1,0 +1,86 @@
+html {
+    background-image: url(/static/css/covid19.jpg);
+}
+
+#first_title {
+    margin-top: 25px;
+    text-align: center;
+    color: #0B3864;
+}
+
+#submit_btn {
+    margin_top: 10px;
+}
+
+h2, h3, h4, a, form, br {
+    text-align: center;
+}
+
+h5 {
+    margin-left : 5px;
+}
+
+a {
+    text-align: center;
+    color: #4F86AC;
+}
+
+
+body {
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.06);
+    color: #545454;
+    font-family: Lucida Bright, Georgia, serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 2em 2em 4em;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0, 0 100,0 50,50" style="fill: %23666666;" /></svg>');
+    border:1px solid black;
+    background-position: right 10px top 50%;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    padding-right: 30px;
+    border-radius: 5px;
+    appearance: none;
+    padding: 8px 20px;
+    color: #333333;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+}
+
+.sel {
+    margin-right: 10px;
+}
+
+input {
+    background-color: #4F86AC;
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    border-radius: 20px
+}
+
+.boxed {
+  border: 2px solid #0B3864;
+}
+
+.center {
+    display: block;
+    margin: auto;
+    width: 80%;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>THWCorona</title>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/main18.css') }}" />
+    </head>
+    <body>
+        <div id="about">
+            <p><h1 id="first_title">THWCorona</h1>
+            <h4>Real Predictions, Real Data</h4></p>
+            <p>THWCorona is a website that allows anybody to compare a state's number of deaths from COVID-19 to historical models.
+            To compare a state's actual data to a historical model, select a state, a prediction date, and the format to view the data in.
+            The goal of this website is to provide a tool for researchers, policy-makers, and everyday citizens to use when making
+            public and personal decisions about COVID-19. <strong><em>To view a graph, select a date of prediction, a state, the format you want to
+            view the data in, and press the "Submit" button.</em></strong></p>
+        </div>
+        <div id="selection">
+            <form id="get_graph" action="/graph" method="POST">
+                <div id="choices">
+                    <label for="dirs">Prediction Date:</label>
+                    <select name="dirs" class="sel">
+                        <option value="null">---</option>
+                        <option value="2020_03_26">March 26</option>
+                        <option value="2020_03_27">March 27</option>
+                        <option value="2020_03_29">March 29</option>
+                        <option value="2020_03_30">March 30</option>
+                        <option value="2020_03_31.1">March 31</option>
+                        <option value="2020_04_01.2">April 1</option>
+                        <option value="2020_04_05.08.all">April 5</option>
+                        <option value="2020_04_07.06.all">April 7</option>
+                        <option value="2020_04_09.04">April 9</option>
+                        <option value="2020_04_12.02">April 12</option>
+                        <option value="2020_04_20.02.all">April 20</option>
+                        <option value="2020_04_21.08">April 21</option>
+                        <option value="2020_04_26.08">April 26</option>
+                        <option value="2020_04_27.05.c">April 27</option>
+                        <option value="2020_04_28.02">April 28</option>
+                        <option value="2020_05_04">May 4</option>
+                    </select>
+                    <label for="states">Choose a state:</label>
+                    <select name="states" class="sel">
+                        <option value="null">---</option>
+                        <option value="Alabama">Alabama</option>
+                        <option value="Alaska">Alaska</option>
+                        <option value="Arizona">Arizona</option>
+                        <option value="Arkansas">Arkansas</option>
+                        <option value="California">California</option>
+                        <option value="Colorado">Colorado</option>
+                        <option value="Connecticut">Connecticut</option>
+                        <option value="Florida">Florida</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Hawaii">Hawaii</option>
+                        <option value="Idaho">Idaho</option>
+                        <option value="Illinois">Illinois</option>
+                        <option value="Indiana">Indiana</option>
+                        <option value="Iowa">Iowa</option>
+                        <option value="Kansas">Kansas</option>
+                        <option value="Kentucky">Kentucky</option>
+                        <option value="Louisiana">Louisiana</option>
+                        <option value="Maine">Maine</option>
+                        <option value="Maryland">Maryland</option>
+                        <option value="Massachusetts">Massachusetts</option>
+                        <option value="Michigan">Michigan</option>
+                        <option value="Minnesota">Minnesota</option>
+                        <option value="Mississippi">Mississippi</option>
+                        <option value="Missouri">Missouri</option>
+                        <option value="Montana">Montana</option>
+                        <option value="Nebraska">Nebraska</option>
+                        <option value="Nevada">Nevada</option>
+                        <option value="New Hampshire">New Hampshire</option>
+                        <option value="New Jersey">New Jersey</option>
+                        <option value="New Mexico">New Mexico</option>
+                        <option value="New York">New York</option>
+                        <option value="North Carolina">North Carolina</option>
+                        <option value="North Dakota">North Dakota</option>
+                        <option value="Ohio">Ohio</option>
+                        <option value="Oklahoma">Oklahoma</option>
+                        <option value="Oregon">Oregon</option>
+                        <option value="Pennsylvania">Pennsylvania</option>
+                        <option value="Rhode Island">Rhode Island</option>
+                        <option value="South Carolina">South Carolina</option>
+                        <option value="South Dakota">South Dakota</option>
+                        <option value="Tennessee">Tennessee</option>
+                        <option value="Texas">Texas</option>
+                        <option value="Utah">Utah</option>
+                        <option value="Vermont">Vermont</option>
+                        <option value="Virginia">Virginia</option>
+                        <option value="Washington">Washington</option>
+                        <option value="West Virginia">West Virginia</option>
+                        <option value="Wisconsin">Wisconsin</option>
+                        <option value="Wyoming">Wyoming</option>
+                        <option value="District of Columbia">DC</option>
+                        <option value="United States of America">USA (All)</option>
+                    </select>
+                    <label for="style">Display Type:</label>
+                    <select name="style" class="sel">
+                        <option value="null">---</option>
+                        <option value="Daily">Daily</option>
+                        <option value="Weekly">Weekly</option>
+                        <option value="5 Day Average (Daily)">5 Day Average (Daily)</option>
+                        <option value="7 Day Average (Daily)">7 Day Average (Daily)</option>
+                        <option value="Daily Cumulative">Cumulative (Daily)</option>
+                    </select>
+                </div><br>
+                <input type="submit" id="submit_btn"></input>
+            </form>
+        </div>
+        <div id="image_location">
+            <div id="graph">
+                <h3>{{text}}</h3>
+                <img src="{{graph}}" alt="Display Graph" class="center"/><br>
+                <p><strong><font color="red">{{wkwarn}}</font></strong></p>
+                <a href="http://www.healthdata.org/covid/data-downloads">Prediction data from IHME</a><br>
+                <a href="https://usafacts.org/visualizations/coronavirus-covid-19-spread-map/">Real deaths data from USA Facts</a><br>
+            </div>
+            <div class="boxed">
+                <h4>NOTES</h4>
+                <h5>1.) The real deaths data ends on May 6</h5>
+                <h5><a href="http://www.healthdata.org/covid/updates">2.) IHME predictions made before May 4 assume Social Distancing and Other Protective Measures</a></h5>
+                <h5>3.) Negative deaths can be accounted for by differences in deaths in "unallocated" counties in each state</h5>
+                <h5>4.) Deviations in deaths that have "already occured" in the predicted model and the actual deaths may be attributed to differences in reporting</h5>
+                <h5>5.) The total USA statistics do not include Puerto Rico, they only include the 50 states and DC.</h5>
+                <h5>6.) 5 day averages are calculated by taking the average of deaths of 5 consecutive days centered around a given date</h5>
+                <h5>7.) For the five day average, if the day has no data before or after, the day is added 3 times, with the next or previous two days each added once</h5>
+                <h5>8.) The rules are analogous for the 7 day averages</h5>
+                <h5>9.) To save the graph, right-click (or ctrl right-click on Mac) and select <em>Save Image As</em> on the graph</h5>
+            </div>
+            <a href="https://github.com/andyj10224/mysite">Source code on GitHub</a><br>
+            <a href="https://techcrunch.com/2020/03/21/google-launches-covid-19-page-and-search-portal-with-safety-tips-official-stats-and-more-us-only-for-now/">Background Image Credits: Rost-9D / Getty Images</a>
+            <h3><font color="red">Attention: To report a bug, send an email to ajiang48@gatech.edu</font></h3>
+        </div>
+    </body>
+</html>
